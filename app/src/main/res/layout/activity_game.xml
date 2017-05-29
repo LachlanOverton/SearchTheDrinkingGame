@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.NestedScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="app.searchthedrinkinggame.GameActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="24dp"
+            android:text="The Search Is Right"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="18dp"
+            android:text="How many results in a google search for..."
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/textView"
+            android:id="@+id/textView1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textSize="28dp"
+            android:text=""
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/textView1"
+            android:id="@+id/txtQuestion" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn1"
+            android:layout_below="@+id/txtQuestion"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            style="@style/AppTheme.Button"
+            android:textColor="@color/colorBlue"
+            android:layout_marginTop="20dp"
+            android:width="160dp"
+            android:height="50dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn2"
+            android:layout_below="@+id/btn1"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            style="@style/AppTheme.Button"
+            android:textColor="@color/colorBlue"
+            android:layout_marginTop="20dp"
+            android:width="160dp"
+            android:height="50dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn3"
+            android:layout_below="@+id/btn2"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            style="@style/AppTheme.Button"
+            android:textColor="@color/colorBlue"
+            android:layout_marginTop="20dp"
+            android:width="160dp"
+            android:height="50dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/btn4"
+            android:layout_below="@+id/btn3"
+            android:layout_centerHorizontal="true"
+            android:textSize="20dp"
+            style="@style/AppTheme.Button"
+            android:textColor="@color/colorBlue"
+            android:layout_marginTop="20dp"
+            android:width="160dp"
+            android:height="50dp"/>
+
+    </RelativeLayout>
+</android.support.v4.widget.NestedScrollView>
