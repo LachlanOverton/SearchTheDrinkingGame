@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -42,13 +43,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SeekBar sbPlayers  = (SeekBar) findViewById(R.id.seekBar);
+        final SeekBar sbPlayers  = (SeekBar) findViewById(R.id.seekBar);
         final SeekBar sbRounds  = (SeekBar) findViewById(R.id.seekBar2);
         final CheckBox cbAnimals = (CheckBox) findViewById(R.id.cbAnimals);
         final CheckBox cbResearch = (CheckBox) findViewById(R.id.cbResearch);
         final CheckBox cbCountries = (CheckBox) findViewById(R.id.cbCountries);
         final CheckBox cbCompanies = (CheckBox) findViewById(R.id.cbCompanies);
         Button btnStart = (Button) findViewById(R.id.btnStart);
+        final TextView txtPv = (TextView) findViewById(R.id.txtPv);
+        final TextView txtRv = (TextView) findViewById(R.id.txtRv) ;
         final List<String> querys = null;
 
         AdRequest request = new AdRequest.Builder().build();
@@ -78,7 +81,10 @@ public class MainActivity extends AppCompatActivity {
                     querys.addAll(Arrays.asList(getResources().getStringArray(R.array.Research)));
                 }
                     Random r = new Random();
-
+                    Integer d = sbPlayers.getProgress();
+                    d++;
+                    Integer round = sbRounds.getProgress();
+                    round++;
                     int a;
                     String[] an = (String[]) querys.toArray();
                     String[] result = new String[sbRounds.getProgress()];
@@ -89,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     Intent intent = new Intent(MainActivity.this, GameActivity.class);
                     intent.putExtra("Q",result);
+                    intent.putExtra("P",d);
+                    intent.putExtra("R",round);
                     try{
                         startActivity(intent);
                         System.gc();
@@ -98,6 +106,44 @@ public class MainActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+            }
+        });
+
+        sbPlayers.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Integer d = sbPlayers.getProgress();
+                d++;
+                txtPv.setText("" + d.toString());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        sbRounds.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                Integer d = sbRounds.getProgress();
+                d++;
+             txtRv.setText("" + d.toString());
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
     }
